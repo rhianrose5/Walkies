@@ -1,7 +1,57 @@
-h1 {
+#title {
   font-family: 'Pacifico', cursive;
   color: #ffb700;
   text-align: center;
   font-size: 70px;
   margin: 2px;
+  background-color: #f4da91;
+  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #f4da91;
+  position: relative;
+}
+
+.topnav #myLinks {
+  display: none;
+}
+
+.topnav a {
+  color: #ffb700;
+  padding: 2px 16px;
+  text-decoration: none;
+  font-size: 45px;
+  display: block;
+  text-align: right;
+}
+
+.topnav a.icon {
+  background: #f4da91;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: #ffb700;
+  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+  font-family: 'Caveat', cursive;
+}
+
+.topnav a:hover {
+  background-color: #f4da91;
+  color: grey;
+}
+
+.active {
+  background-color: white;
+  color: white;
+}
+
+#navbarText {
+  font-size: 30px;
+  color: #ffb700;
+  background-color: #f4da91;
+  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+
 }

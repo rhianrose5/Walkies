@@ -12,9 +12,7 @@ export class MapComponent implements OnInit {
   style = 'mapbox://styles/rhianrose5/ckhvw0bkg0cwt19o1yz3nz0e7';
   lat = 50.614814;
   lng = -3.412887;
-  photos: any;
   loading = true;
-  commentDate: string;
 
   constructor() {
 
@@ -27,7 +25,7 @@ export class MapComponent implements OnInit {
     this.map = new mapboxgl.Map({
       container: 'map',
       style: this.style,
-      zoom: 10,
+      zoom: 8,
       center: [this.lng, this.lat]
     });
 

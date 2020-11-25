@@ -12,4 +12,21 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
+  /*expandNavbar() {
+    //change icon to be a cross
+    if (document.getElementById("navbarIcon").className == "fa fa-bars") {
+      document.getElementById("navbarIcon").className = "fa fa-paw";
+    } else {
+      document.getElementById("navbarIcon").className = "fa fa-bars"
+    }
+
+
+    //expand links
+    var x = document.getElementById("myLinks");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+    } else {
+      x.style.display = "block";
+    }
+  }*/
 }
