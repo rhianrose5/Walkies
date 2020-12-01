@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { MapComponent } from './pages/map/map.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { WalksService } from './services/walk.service';
 
 @NgModule({
   declarations: [
@@ -16,9 +19,13 @@ import { FooterComponent } from './components/footer/footer.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [WalksService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private http: HttpClient) {
+  }
+}
