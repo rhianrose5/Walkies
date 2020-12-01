@@ -4,13 +4,13 @@
   text-align: center;
   font-size: 70px;
   margin: 2px;
-  background-color: #f4da91;
-  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+  background-color: white;
+  text-shadow: -1px -1px 0 grey, 1px -1px 0 grey, -1px 1px 0 grey, 1px 1px 0 grey;
 }
 
 .topnav {
   overflow: hidden;
-  background-color: #f4da91;
+  background-color: white;
   position: relative;
 }
 
@@ -28,19 +28,18 @@
 }
 
 .topnav a.icon {
-  background: #f4da91;
+  background: white;
   display: block;
   position: absolute;
   right: 0;
   top: 0;
   color: #ffb700;
-  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+  text-shadow: -1px -1px 0 grey, 1px -1px 0 grey, -1px 1px 0 grey, 1px 1px 0 grey;
   font-family: 'Caveat', cursive;
 }
 
 .topnav a:hover {
-  background-color: #f4da91;
-  color: grey;
+  color: white;
 }
 
 .active {
@@ -52,6 +51,6 @@
   font-size: 30px;
   color: #ffb700;
   background-color: #f4da91;
-  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+  text-shadow: -1px -1px 0 grey, 1px -1px 0 grey, -1px 1px 0 grey, 1px 1px 0 grey;
 
 }

@@ -9,7 +9,7 @@ import * as mapboxgl from 'mapbox-gl';
 export class MapComponent implements OnInit {
 
   map: mapboxgl.Map;
-  style = 'mapbox://styles/rhianrose5/ckhvw0bkg0cwt19o1yz3nz0e7';
+  style = 'mapbox://styles/rhianrose5/ckhxsuyww03vo19mqpm2vch0p';
   lat = 50.614814;
   lng = -3.412887;
   loading = true;
@@ -20,7 +20,7 @@ export class MapComponent implements OnInit {
 
   ngOnInit() {
     //Replace hard code key with environment variable later
-    Object.getOwnPropertyDescriptor(mapboxgl, "accessToken").set("pk.eyJ1IjoicmhpYW5yb3NlNSIsImEiOiJja2h2dzZjc2EweWtiMnNwNTE1M3doMzh2In0.q2Dr4ATPtHLaQ5uRzc1Jcg");
+    Object.getOwnPropertyDescriptor(mapboxgl, "accessToken").set("pk.eyJ1IjoicmhpYW5yb3NlNSIsImEiOiJjazdmNDg5MzEwYnR4M2VvOHc2OGpqdjgzIn0.qVx4-bXWKU8_IudFGFsKeA");
 
     this.map = new mapboxgl.Map({
       container: 'map',
