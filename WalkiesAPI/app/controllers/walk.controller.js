@@ -30,7 +30,7 @@ exports.findOne = (req, res) => {
         .then(data => {
             if (!data)
                 res.status(404).send({
-                    message: "Not found Tutorial with walkId " + walkId
+                    message: "Not found walk with walkId " + walkId
                 });
             else res.send(data);
         })
@@ -38,7 +38,7 @@ exports.findOne = (req, res) => {
             res
                 .status(500)
                 .send({
-                    message: "Error retrieving Tutorial with walkId=" + walkId
+                    message: "Error retrieving walk with walkId=" + walkId
                 });
         });
 };
