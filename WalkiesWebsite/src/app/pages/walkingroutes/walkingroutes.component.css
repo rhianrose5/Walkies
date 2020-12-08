@@ -3,4 +3,10 @@
   font-family: 'Gloria Hallelujah', cursive;
   font-size: 50px;
   color: #ffb700;
+  padding: 0px;
+  margin: 0px;
+}
+
+#favicon {
+  padding: 5px;
 }
