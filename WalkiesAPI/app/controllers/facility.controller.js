@@ -1,5 +1,5 @@
 const db = require("../models");
-const Walk = db.walks;
+const Facilities = db.facilities;
 
 exports.findAll = (req, res) => {
     const walkName = req.query.walkName;
@@ -8,13 +8,13 @@ exports.findAll = (req, res) => {
         walkName: walkName
     } : {}
 
-    Walk.find(condition)
+    Facilities.find(condition)
         .then(data => {
             res.send(data);
         })
         .catch(err => {
             res.status(500).send({
-                message: err.message || "Some error occurred while retrieving walks."
+                message: err.message || "Some error occurred while retrieving facilities."
             });
         });
 };

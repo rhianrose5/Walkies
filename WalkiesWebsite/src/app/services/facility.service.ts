@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-const baseUrl = 'http://localhost:8080/api/walks';
+const baseUrl = 'http://localhost:8080/api/facilities';
 
 @Injectable({
     providedIn: 'root'
 })
-export class WalksService {
+export class FacilitiesService {
 
     constructor(private http: HttpClient) { }
 
@@ -15,7 +15,7 @@ export class WalksService {
         return this.http.get(baseUrl);
     };
 
-    getAllWalkInformation(walkName): Observable<any> {
+    getAllFacilityInformation(walkName): Observable<any> {
         return this.http.get(`${baseUrl}?walkName=${walkName}`);
     };
 }

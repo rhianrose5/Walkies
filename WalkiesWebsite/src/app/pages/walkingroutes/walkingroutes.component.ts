@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { WalksService } from '../../services/walk.service';
-import { IWalkDetails } from '../../models/walkdetails';
+import { FacilitiesService } from '../../services/facility.service';
+import { IWalks } from '../../models/walk';
+import { IFacilities } from '../../models/facility';
 
 @Component({
   selector: 'app-walkingroutes',
@@ -12,9 +14,10 @@ export class WalkingroutesComponent implements OnInit {
   currentURL = '';
   walkName = "";
   loading = true;
-  walkDetails: IWalkDetails[] = [];
+  walkDetails: IWalks[] = [];
+  facilityDetails: IFacilities[] = [];
 
-  constructor(private route: ActivatedRoute, private _walksService: WalksService) {
+  constructor(private route: ActivatedRoute, private _walksService: WalksService, private _facilitiesService: FacilitiesService) {
     this.currentURL = window.location.href;
   }
 
@@ -26,6 +29,14 @@ export class WalkingroutesComponent implements OnInit {
       .subscribe(walkDetails => {
         this.loading = false;
         this.walkDetails = walkDetails;
+      });
+
+    this._facilitiesService.getAllFacilityInformation(walkName)
+      .subscribe(facilityDetails => {
+        this.loading = false;
+        this.facilityDetails = facilityDetails;
+
+        console.log(facilityDetails)
       });
   }
 

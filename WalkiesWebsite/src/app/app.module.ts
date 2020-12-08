@@ -10,6 +10,7 @@ import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { WalksService } from './services/walk.service';
 import { WalkingroutesComponent } from './pages/walkingroutes/walkingroutes.component';
+import { FacilitiesService } from './services/facility.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { WalkingroutesComponent } from './pages/walkingroutes/walkingroutes.comp
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [WalksService],
+  providers: [WalksService, FacilitiesService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
