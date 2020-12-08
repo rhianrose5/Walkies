@@ -7,7 +7,7 @@
 <div *ngFor="let walkDetail of walkDetails">
   <h1 id="routeName"><i id="favicon" class="fa fa-paw"></i>{{walkDetail.walkName}}<i id="favicon" class="fa fa-paw"></i>
   </h1>
-  <p>Description of the walk</p>
+  <p>{{walkDetail.walkDescription}}</p>
 </div>
 <h2>Facilities</h2>
 <div *ngFor="let facilityDetail of facilityDetails">

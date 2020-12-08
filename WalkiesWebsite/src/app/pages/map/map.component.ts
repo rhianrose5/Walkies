@@ -33,7 +33,7 @@ export class MapComponent implements OnInit {
     this.map = new mapboxgl.Map({
       container: 'map',
       style: this.style,
-      zoom: 8,
+      zoom: 7.5,
       center: [this.lng, this.lat]
     });
 
@@ -73,7 +73,7 @@ export class MapComponent implements OnInit {
             new mapboxgl.Marker(el)
               .setLngLat(new mapboxgl.LngLat(mark.longitude, mark.latitude))
               .setPopup(new mapboxgl.Popup({ closeOnClick: true })
-                .setHTML('<a href="http://localhost:4200/walkingroutes/' + mark.walkName + '">Go to walk</a>'))
+                .setHTML('<p>' + mark.walkName + '</p><a href="http://localhost:4200/walkingroutes/' + mark.walkName + '">Go to walk</a>'))
               .addTo(this.map);
           });
         });
