@@ -9,13 +9,15 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { WalksService } from './services/walk.service';
+import { WalkingroutesComponent } from './pages/walkingroutes/walkingroutes.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MapComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    WalkingroutesComponent
   ],
   imports: [
     BrowserModule,

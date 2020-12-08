@@ -1,15 +1,13 @@
 const db = require("../models");
 const Walk = db.walks;
+const Facilities = db.facilities;
 
-// Retrieve all walks from the database.
 exports.findAll = (req, res) => {
-    const walkId = req.query.walkId;
-    var condition = walkId ? {
-        walkId: {
-            $regex: new RegExp(walkId),
-            $options: "i"
-        }
-    } : {};
+    const walkName = req.query.walkName;
+
+    var condition = walkName ? {
+        walkName: walkName
+    } : {}
 
     Walk.find(condition)
         .then(data => {
@@ -17,28 +15,7 @@ exports.findAll = (req, res) => {
         })
         .catch(err => {
             res.status(500).send({
-                message: err.message || "Some error occurred while retrieving tutorials."
+                message: err.message || "Some error occurred while retrieving walks."
             });
-        });
-};
-
-// Find a single walk with an id
-exports.findOne = (req, res) => {
-    const walkId = req.params.walkId;
-
-    Walk.findById(walkId)
-        .then(data => {
-            if (!data)
-                res.status(404).send({
-                    message: "Not found walk with walkId " + walkId
-                });
-            else res.send(data);
-        })
-        .catch(err => {
-            res
-                .status(500)
-                .send({
-                    message: "Error retrieving walk with walkId=" + walkId
-                });
         });
 };

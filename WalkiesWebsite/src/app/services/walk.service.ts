@@ -18,4 +18,9 @@ export class WalksService {
     get(id): Observable<any> {
         return this.http.get(`${baseUrl}/${id}`);
     }
+
+    getAllWalkInformation(walkName): Observable<any> {
+        console.log("reached the service")
+        return this.http.get(`${baseUrl}?walkName=${walkName}`);
+    }
 }

@@ -73,7 +73,7 @@ export class MapComponent implements OnInit {
             new mapboxgl.Marker(el)
               .setLngLat(new mapboxgl.LngLat(mark.longitude, mark.latitude))
               .setPopup(new mapboxgl.Popup({ closeOnClick: true })
-                .setHTML('<a href="http://localhost:4200/' + mark.walkName + '">Go to walk</a>'))
+                .setHTML('<a href="http://localhost:4200/walkingroutes/' + mark.walkName + '">Go to walk</a>'))
               .addTo(this.map);
           });
         });
