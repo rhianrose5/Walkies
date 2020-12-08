@@ -2,12 +2,13 @@
   <title>Walking Routes</title>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@300&display=swap" rel="stylesheet">
 </head>
 
 <div *ngFor="let walkDetail of walkDetails">
   <h1 id="routeName"><i id="favicon" class="fa fa-paw"></i>{{walkDetail.walkName}}<i id="favicon" class="fa fa-paw"></i>
   </h1>
-  <p>{{walkDetail.walkDescription}}</p>
+  <p id="walkDescription">{{walkDetail.walkDescription}}</p>
 </div>
 <h2>Facilities</h2>
 <div *ngFor="let facilityDetail of facilityDetails">

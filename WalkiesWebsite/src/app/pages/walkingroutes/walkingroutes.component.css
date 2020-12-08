@@ -10,3 +10,10 @@
 #favicon {
   padding: 5px;
 }
+
+#walkDescription {
+  text-align: center;
+  font-family: 'Sansita Swashed', cursive;
+  font-size: 25px;
+  margin: 10px;
+}
