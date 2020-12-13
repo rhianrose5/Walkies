@@ -8,5 +8,6 @@ db.mongoose = mongoose;
 db.url = dbConfig.url;
 db.walks = require("./walk.model.js")(mongoose);
 db.facilities = require("./facility.model.js")(mongoose);
+db.photos = require("./photo.model.js")(mongoose);
 
 module.exports = db;

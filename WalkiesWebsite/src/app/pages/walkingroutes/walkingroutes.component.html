@@ -16,3 +16,11 @@
     {{facility}}
   </p>
 </div>
+
+<div class="row">
+  <div *ngFor="let photo of photos">
+    <div class="column">
+      <img src="data:image/jpeg;base64,{{photo.photo}}" style="width:100%">
+    </div>
+  </div>
+</div>

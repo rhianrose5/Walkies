@@ -4,6 +4,8 @@ import { WalksService } from '../../services/walk.service';
 import { FacilitiesService } from '../../services/facility.service';
 import { IWalks } from '../../models/walk';
 import { IFacilities } from '../../models/facility';
+import { IPhotos } from '../../models/photo';
+import { PhotosService } from '../../services/photo.service';
 
 @Component({
   selector: 'app-walkingroutes',
@@ -16,8 +18,9 @@ export class WalkingroutesComponent implements OnInit {
   loading = true;
   walkDetails: IWalks[] = [];
   facilityDetails: IFacilities[] = [];
+  photos: IPhotos[] = [];
 
-  constructor(private route: ActivatedRoute, private _walksService: WalksService, private _facilitiesService: FacilitiesService) {
+  constructor(private route: ActivatedRoute, private _walksService: WalksService, private _facilitiesService: FacilitiesService, private _photosService: PhotosService) {
     this.currentURL = window.location.href;
   }
 
@@ -35,8 +38,12 @@ export class WalkingroutesComponent implements OnInit {
       .subscribe(facilityDetails => {
         this.loading = false;
         this.facilityDetails = facilityDetails;
+      });
 
-        console.log(facilityDetails)
+    this._photosService.getAllPhotos(walkName)
+      .subscribe(photos => {
+        this.loading = false;
+        this.photos = photos;
       });
   }
 
