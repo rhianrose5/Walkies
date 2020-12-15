@@ -19,10 +19,10 @@
 }
 
 .topnav a {
-  color: #ffb700;
+  color: grey;
   padding: 2px 16px;
   text-decoration: none;
-  font-size: 45px;
+  font-size: 40px;
   display: block;
   text-align: right;
 }
@@ -33,13 +33,10 @@
   position: absolute;
   right: 0;
   top: 0;
-  color: #ffb700;
-  text-shadow: -1px -1px 0 grey, 1px -1px 0 grey, -1px 1px 0 grey, 1px 1px 0 grey;
-  font-family: 'Caveat', cursive;
 }
 
 .topnav a:hover {
-  color: white;
+  color: #ffb700;
 }
 
 .active {
