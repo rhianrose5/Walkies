@@ -18,7 +18,6 @@
 
 .column {
   float: left;
-  width: 33.33%;
   padding: 10px;
 }
 
@@ -32,6 +31,17 @@
   display: table;
 }
 
+.facilitiesHeading {
+  font-family: 'IBM Plex Sans Condensed', sans-serif;
+  font-size: 30px;
+  margin: 2px;
+}
+
+.facilitiesList {
+  font-family: 'IBM Plex Sans Condensed', sans-serif;
+  font-size: 20px;
+}
+
 .commentsSection {
   padding: 20px;
 }
@@ -39,7 +49,7 @@
 .detailBox {
   margin: auto;
   width: 60%;
-  border: 5px dashed #bbb;
+  border: 3px dashed #bbb;
   padding: 5px;
 }
 
@@ -49,6 +59,7 @@
   padding: 10px;
   font-size: 50px;
   text-align: center;
+  font-family: 'IBM Plex Sans Condensed', sans-serif;
 }
 
 .titleBox label {
@@ -95,20 +106,10 @@
   display: table-cell;
 }
 
-.commenterImage {
-  width: 30px;
-  margin-right: 5px;
-  height: 100%;
-  float: left;
-}
-
-.commenterImage img {
-  width: 100%;
-  border-radius: 50%;
-}
-
 .commentText p {
   margin: 0;
+  font-family: 'Harmattan', sans-serif;
+  font-size: 30px;
 }
 
 .sub-text {
