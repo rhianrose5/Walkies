@@ -12,6 +12,7 @@ import { WalksService } from './services/walk.service';
 import { WalkingroutesComponent } from './pages/walkingroutes/walkingroutes.component';
 import { FacilitiesService } from './services/facility.service';
 import { PhotosService } from './services/photo.service';
+import { CommentsService } from './services/comment.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { PhotosService } from './services/photo.service';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [WalksService, FacilitiesService, PhotosService],
+  providers: [WalksService, FacilitiesService, PhotosService, CommentsService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

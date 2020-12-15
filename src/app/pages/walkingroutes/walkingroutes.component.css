@@ -1,6 +1,5 @@
 #routeName {
-  text-align: center;
-  font-family: 'Gloria Hallelujah', cursive;
+  font-family: 'IBM Plex Sans Condensed', sans-serif;
   font-size: 50px;
   color: #ffb700;
   padding: 0px;
@@ -12,22 +11,113 @@
 }
 
 #walkDescription {
-  text-align: center;
-  font-family: 'Sansita Swashed', cursive;
+  font-family: 'IBM Plex Sans', sans-serif;
   font-size: 25px;
   margin: 10px;
 }
 
-/* Three image containers (use 25% for four, and 50% for two, etc) */
 .column {
   float: left;
   width: 33.33%;
-  padding: 5px;
+  padding: 10px;
 }
 
-/* Clear floats after image containers */
+.column img {
+  border-radius: 25px;
+}
+
 .row::after {
   content: "";
   clear: both;
   display: table;
+}
+
+.commentsSection {
+  padding: 20px;
+}
+
+.detailBox {
+  margin: auto;
+  width: 60%;
+  border: 5px dashed #bbb;
+  padding: 5px;
+}
+
+.titleBox {
+  background-color: #fdfdfd;
+  color: #ffb700;
+  padding: 10px;
+  font-size: 50px;
+  text-align: center;
+}
+
+.titleBox label {
+  margin: 0;
+  display: inline-block;
+}
+
+.commentBox {
+  padding: 10px;
+  border-top: 1px dotted #bbb;
+}
+
+.commentBox .form-group:first-child,
+.actionBox .form-group:first-child {
+  width: 80%;
+}
+
+.commentBox .form-group:nth-child(2),
+.actionBox .form-group:nth-child(2) {
+  width: 18%;
+}
+
+.actionBox .form-group * {
+  width: 100%;
+}
+
+.taskDescription {
+  margin-top: 10px 0;
+}
+
+.commentList {
+  padding: 0;
+  list-style: none;
+  max-height: 200px;
+  overflow: auto;
+}
+
+.commentList li {
+  margin: 0;
+  margin-top: 10px;
+}
+
+.commentList li>div {
+  display: table-cell;
+}
+
+.commenterImage {
+  width: 30px;
+  margin-right: 5px;
+  height: 100%;
+  float: left;
+}
+
+.commenterImage img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.commentText p {
+  margin: 0;
+}
+
+.sub-text {
+  color: #aaa;
+  font-family: verdana;
+  font-size: 11px;
+}
+
+.actionBox {
+  border-top: 4px dotted #bbb;
+  padding: 10px;
 }
