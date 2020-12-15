@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 const baseUrl = 'https://walkies-app-api.herokuapp.com/api/comments';
 
@@ -17,5 +18,10 @@ export class CommentsService {
 
     getAllComments(walkName): Observable<any> {
         return this.http.get(`${baseUrl}?walkName=${walkName}`);
+    };
+
+    leaveComment(data): Observable<any> {
+        console.log(data);
+        return this.http.post(`${baseUrl}/createComment`, data);
     };
 }

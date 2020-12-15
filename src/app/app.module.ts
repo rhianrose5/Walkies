@@ -13,6 +13,7 @@ import { WalkingroutesComponent } from './pages/walkingroutes/walkingroutes.comp
 import { FacilitiesService } from './services/facility.service';
 import { PhotosService } from './services/photo.service';
 import { CommentsService } from './services/comment.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,8 @@ import { CommentsService } from './services/comment.service';
     WalkingroutesComponent
   ],
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule

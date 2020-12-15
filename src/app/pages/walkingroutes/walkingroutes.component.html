@@ -45,12 +45,13 @@
         </ul>
       </div>
       <!--Add comments section - TODO: Only if logged in-->
-      <form class="form-inline" role="form">
-        <div class="form-group">
-          <input class="form-control" type="text" placeholder="Your comments" />
+      <form [formGroup]="commentForm" (ngSubmit)="onCommentSubmit()" class="form-inline">
+        <div class="form-group" id="inputCommentBox">
+          <input class="form-control" id="inputCommentBoxText" type="text" placeholder="Your comments"
+            formControlName="comment" />
         </div>
         <div class="form-group">
-          <button class="btn btn-default">Add</button>
+          <button type="submit" class="btn btn-default">Submit</button>
         </div>
       </form>
     </div>

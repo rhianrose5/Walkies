@@ -122,3 +122,11 @@
   border-top: 4px dotted #bbb;
   padding: 10px;
 }
+
+#inputCommentBox {
+  margin-bottom: 5px;
+}
+
+#inputCommentBoxText {
+  font-size: 15px;
+}
