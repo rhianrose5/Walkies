@@ -29,7 +29,7 @@
   </div>
 </div>
 <!--Comments section-->
-<div class="commentsSection">
+<!--<div class="commentsSection">
   <div class="detailBox">
     <div class="titleBox">
       <label>Comments</label>
@@ -44,7 +44,7 @@
           </li>
         </ul>
       </div>
-      <!--Add comments section - TODO: Only if logged in-->
+      Add comments section - TODO: Only if logged in
       <form [formGroup]="commentForm" (ngSubmit)="onCommentSubmit()" class="form-inline">
         <div class="form-group" id="inputCommentBox">
           <input class="form-control" id="inputCommentBoxText" type="text" placeholder="Your comments"
@@ -56,4 +56,10 @@
       </form>
     </div>
   </div>
+</div>-->
+<div *ngFor="let comment of commentList">
+
 </div>
+
+<input [(ngModel)]="newComment" (keyup)="$event.keyCode == 13 && leaveComment()" />
+<button (click)="leaveComment()">Post Comment</button>

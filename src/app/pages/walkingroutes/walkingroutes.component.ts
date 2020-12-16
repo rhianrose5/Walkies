@@ -27,6 +27,9 @@ export class WalkingroutesComponent implements OnInit {
   commentForm = new FormGroup({
     comment: new FormControl('')
   });
+  newComment: string;
+  commentList: string[] = [];
+
   get f() { return this.commentForm.value; }
 
   constructor(private route: ActivatedRoute, private _walksService: WalksService, private _facilitiesService: FacilitiesService, private _photosService: PhotosService, private _commentsService: CommentsService) {
@@ -56,13 +59,16 @@ export class WalkingroutesComponent implements OnInit {
       });
 
     this._commentsService.getAllComments(walkName)
-      .subscribe(comments => {
-        this.loading = false;
-        this.comments = comments;
+      .subscribe((comment: string) => {
+        this.commentList.push(comment);
       });
+    /*.subscribe(comments => {
+      this.loading = false;
+      this.comments = comments;
+    });*/
   }
 
-  onCommentSubmit() {
+  /*onCommentSubmit() {
     var walkName = document.getElementById("routeName").innerHTML;
 
     const data = {
@@ -80,6 +86,11 @@ export class WalkingroutesComponent implements OnInit {
         error => {
           console.log(error);
         });
+  }*/
+
+  leaveComment() {
+    this._commentsService.leaveComment(this.newComment);
+    this.newComment = '';
   }
 
 }

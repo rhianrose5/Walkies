@@ -14,6 +14,9 @@ import { FacilitiesService } from './services/facility.service';
 import { PhotosService } from './services/photo.service';
 import { CommentsService } from './services/comment.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+
+const config: SocketIoConfig = { url: 'http://localhost:8080', options: {} };
 
 @NgModule({
   declarations: [
@@ -28,7 +31,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    SocketIoModule.forRoot(config)
   ],
   providers: [WalksService, FacilitiesService, PhotosService, CommentsService],
   bootstrap: [AppComponent]
