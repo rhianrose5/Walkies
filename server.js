@@ -1,37 +1,35 @@
 //Install express server
 const express = require('express');
 const path = require('path');
-const cors = require("cors");
-
+const http = require('http');
 const app = express();
 
-const http = require('http');
-const server = http.Server(app);
-
-const socketIO = require('socket.io')
-const io = socketIO(server);
-io.origins((origin, callback) => {
-  if (origin !== 'http://localhost:4200') {
-    return callback('origin not allowed', false);
+var io = require('socket.io')(http, {
+  cors: {
+    origin: "http://localhost:4200",
+    methods: ["GET", "POST"]
   }
-  callback(null, true);
 });
 
 // Serve only the static files form the dist directory
-app.use(express.static(__dirname + '/dist/WalkiesWebsite'));
+//app.use(express.static(__dirname + '/dist/WalkiesWebsite'));
+app.use(express.static(__dirname));
 
-app.get('/*', function (req, res) {
+/*app.get('/*', function (req, res) {
 
   res.sendFile(path.join(__dirname + '/dist/WalkiesWebsite/index.html'));
+});*/
+app.get('/*', function (req, res) {
+
+  res.sendFile(path.join(__dirname));
 });
 
+//Socket Io
 io.on('connection', (socket) => {
-  console.log('user connected');
-});
-
-io.on('newComment', (comment) => {
-  io.emit(comment);
+  console.log('a user connected');
 });
 
 // Start the app by listening on the default Heroku port
-app.listen(process.env.PORT || 8080);
+app.listen(process.env.PORT || 8080); {
+  console.log("Listening on port 8080")
+};

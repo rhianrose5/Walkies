@@ -10,6 +10,7 @@ import { CommentsService } from '../../services/comment.service';
 import { IComments } from '../../models/comment';
 import { first } from 'rxjs/operators';
 import { FormControl, FormGroup } from '@angular/forms';
+import { io } from "socket.io-client";
 
 @Component({
   selector: 'app-walkingroutes',
@@ -29,11 +30,14 @@ export class WalkingroutesComponent implements OnInit {
   });
   newComment: string;
   commentList: string[] = [];
+  private _socketUrl: string = "http://localhost:8080";
+  private _socket;
 
   get f() { return this.commentForm.value; }
 
   constructor(private route: ActivatedRoute, private _walksService: WalksService, private _facilitiesService: FacilitiesService, private _photosService: PhotosService, private _commentsService: CommentsService) {
     this.currentURL = window.location.href;
+    this._socket = io(this._socketUrl);
   }
 
   ngOnInit() {
@@ -59,16 +63,13 @@ export class WalkingroutesComponent implements OnInit {
       });
 
     this._commentsService.getAllComments(walkName)
-      .subscribe((comment: string) => {
-        this.commentList.push(comment);
+      .subscribe(comments => {
+        this.loading = false;
+        this.comments = comments;
       });
-    /*.subscribe(comments => {
-      this.loading = false;
-      this.comments = comments;
-    });*/
   }
 
-  /*onCommentSubmit() {
+  onCommentSubmit() {
     var walkName = document.getElementById("routeName").innerHTML;
 
     const data = {
@@ -86,11 +87,6 @@ export class WalkingroutesComponent implements OnInit {
         error => {
           console.log(error);
         });
-  }*/
-
-  leaveComment() {
-    this._commentsService.leaveComment(this.newComment);
-    this.newComment = '';
   }
 
 }
