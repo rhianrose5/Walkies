@@ -8,7 +8,15 @@ let server = http.createServer(app);
 let cors = require("cors")
 
 // Configure statics.
-app.use(express.static(path.join(__dirname, "resources")));
+//app.use(express.static(path.join(__dirname, "resources")));
+
+app.use(express.static(__dirname + '/dist/WalkiesWebsite'));
+//app.use(express.static(__dirname));
+
+app.get('/*', function (req, res) {
+
+  res.sendFile(path.join(__dirname + '/dist/WalkiesWebsite/index.html'));
+});
 
 // Initialise the socket server.
 //let io = socketIo(server);
