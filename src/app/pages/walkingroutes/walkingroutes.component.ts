@@ -9,6 +9,7 @@ import { PhotosService } from '../../services/photo.service';
 import { CommentsService } from '../../services/comment.service';
 import { IComments } from '../../models/comment';
 import { FormControl, FormGroup } from '@angular/forms';
+import { io } from 'socket.io-client';
 
 @Component({
   selector: 'app-walkingroutes',
@@ -63,6 +64,15 @@ export class WalkingroutesComponent implements OnInit {
   }
 
   onCommentSubmit() {
+    let socket = io("http://localhost:9000");
+    console.log("socket: " + socket);
+
+    socket.on("server message", function (msg) {
+      console.log("Rec'd from server: '" + msg + "'");
+      socket.emit("client message", "Acknowledging your message");
+      console.log("Emitted message...")
+    });
+    /*
     var walkName = document.getElementById("routeName").innerHTML;
 
     const data = {
@@ -79,7 +89,7 @@ export class WalkingroutesComponent implements OnInit {
         },
         error => {
           console.log(error);
-        });
+        });*/
   }
 
 }
