@@ -9,7 +9,8 @@ import { PhotosService } from '../../services/photo.service';
 import { CommentsService } from '../../services/comment.service';
 import { IComments } from '../../models/comment';
 import { FormControl, FormGroup } from '@angular/forms';
-import { io } from 'socket.io-client';
+//import { io } from 'socket.io-client';
+import * as io from 'socket.io-client';
 
 @Component({
   selector: 'app-walkingroutes',
@@ -27,6 +28,7 @@ export class WalkingroutesComponent implements OnInit {
   commentForm = new FormGroup({
     comment: new FormControl('')
   });
+  socket: io.Socket;
 
   get f() { return this.commentForm.value; }
 
@@ -64,15 +66,15 @@ export class WalkingroutesComponent implements OnInit {
   }
 
   onCommentSubmit() {
-    let socket = io("http://localhost:9000");
-    console.log("socket: " + socket);
+    this.socket = io.connect('http://localhost:9000');
+    console.log("socket: " + this.socket);
 
-    socket.on("server message", function (msg) {
+    this.socket.on("server message", function (msg) {
       console.log("Rec'd from server: '" + msg + "'");
-      socket.emit("client message", "Acknowledging your message");
+      this.socket.emit("client message", "Acknowledging your message");
       console.log("Emitted message...")
     });
-    /*
+
     var walkName = document.getElementById("routeName").innerHTML;
 
     const data = {
@@ -82,7 +84,7 @@ export class WalkingroutesComponent implements OnInit {
       comment: this.f.comment
     };
 
-    this._commentsService.leaveComment(data)
+    /*this._commentsService.leaveComment(data)
       .subscribe(
         response => {
           console.log(response);
