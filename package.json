@@ -7,7 +7,7 @@
   },
   "scripts": {
     "ng": "ng",
-    "start": "node socketServer.js",
+    "start": "node server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -31,7 +31,6 @@
     "npm": "^6.14.9",
     "path": "^0.12.7",
     "rxjs": "~6.6.3",
-    "socket.io-client": "^3.0.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.3"
   },
