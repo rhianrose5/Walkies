@@ -8,9 +8,7 @@ import { IPhotos } from '../../models/photo';
 import { PhotosService } from '../../services/photo.service';
 import { CommentsService } from '../../services/comment.service';
 import { IComments } from '../../models/comment';
-import { first } from 'rxjs/operators';
 import { FormControl, FormGroup } from '@angular/forms';
-import { io } from "socket.io-client";
 
 @Component({
   selector: 'app-walkingroutes',
@@ -28,16 +26,11 @@ export class WalkingroutesComponent implements OnInit {
   commentForm = new FormGroup({
     comment: new FormControl('')
   });
-  newComment: string;
-  commentList: string[] = [];
-  private _socketUrl: string = "http://localhost:8080";
-  private _socket;
 
   get f() { return this.commentForm.value; }
 
   constructor(private route: ActivatedRoute, private _walksService: WalksService, private _facilitiesService: FacilitiesService, private _photosService: PhotosService, private _commentsService: CommentsService) {
     this.currentURL = window.location.href;
-    this._socket = io(this._socketUrl);
   }
 
   ngOnInit() {

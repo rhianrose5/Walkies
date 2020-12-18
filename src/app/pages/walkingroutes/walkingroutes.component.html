@@ -1,4 +1,4 @@
-<!--<head>
+<head>
   <title>Walking Routes</title>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital@1&display=swap" rel="stylesheet">
@@ -7,20 +7,20 @@
 </head>
 
 
-Photos section
+<!--Photos section-->
 <div class="row">
   <div *ngFor="let photo of photos">
     <div class="column">
       <img class="photo" src="data:image/jpeg;base64,{{photo.photo}}">
     </div>
   </div>
-  Walk detail section
+  <!--Walk detail section-->
   <div *ngFor="let walkDetail of walkDetails">
     <h1 id="routeName">{{walkDetail.walkName}}</h1>
     <p id="walkDescription">{{walkDetail.walkDescription}}</p>
   </div>
   <br>
-  Facilities section
+  <!--Facilities section-->
   <h2 class="facilitiesHeading">Facilities</h2>
   <div *ngFor="let facilityDetail of facilityDetails">
     <div class="facilitiesList" *ngFor="let facility of facilityDetail.facilities"><i id="favicon"
@@ -28,7 +28,7 @@ Photos section
       {{facility}}</div>
   </div>
 </div>
-Comments section
+<!--Comments section-->
 <div class="commentsSection">
   <div class="detailBox">
     <div class="titleBox">
@@ -44,7 +44,7 @@ Comments section
           </li>
         </ul>
       </div>
-      Add comments section - TODO: Only if logged in
+      <!--Add comments section - TODO: Only if logged in-->
       <form [formGroup]="commentForm" (ngSubmit)="onCommentSubmit()" class="form-inline">
         <div class="form-group" id="inputCommentBox">
           <input class="form-control" id="inputCommentBoxText" type="text" placeholder="Your comments"
@@ -57,14 +57,3 @@ Comments section
     </div>
   </div>
 </div>
-<div *ngFor="let comment of commentList">
-
-</div>
-
-<input [(ngModel)]="newComment" (keyup)="$event.keyCode == 13 && leaveComment()" />
-<button (click)="leaveComment()">Post Comment</button>-->
-<script src="/socket.io/socket.io.js"></script>
-<script>
-  var socket = io();
-
-</script>
