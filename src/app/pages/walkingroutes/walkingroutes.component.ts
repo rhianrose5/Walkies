@@ -28,12 +28,22 @@ export class WalkingroutesComponent implements OnInit {
   commentForm = new FormGroup({
     comment: new FormControl('')
   });
-  socket: io.Socket;
+  socket = io('http://localhost:9000');
 
   get f() { return this.commentForm.value; }
 
   constructor(private route: ActivatedRoute, private _walksService: WalksService, private _facilitiesService: FacilitiesService, private _photosService: PhotosService, private _commentsService: CommentsService) {
     this.currentURL = window.location.href;
+
+    this.socket.on('connect', function () {
+      console.log('Yeah I am connected!!');
+    });
+
+    //Listen from server.js
+    this.socket.on('click_count', function (value) {
+      console.log("Count:" + value);
+      document.getElementById("counter").innerHTML = value; //Set new count value
+    });
   }
 
   ngOnInit() {
@@ -63,6 +73,11 @@ export class WalkingroutesComponent implements OnInit {
         this.loading = false;
         this.comments = comments;
       });
+  }
+
+  addLike() {
+    console.log("button clicked")
+    this.socket.emit('clicked'); //Emitting user click
   }
 
   onCommentSubmit() {

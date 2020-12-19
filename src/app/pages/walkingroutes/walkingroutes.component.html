@@ -1,35 +1,35 @@
-<head>
+<!--<head>
   <title>Walking Routes</title>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital@1&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Harmattan&display=swap" rel="stylesheet">
-</head>
+</head>-->
 
 
 <!--Photos section-->
-<div class="row">
+<!--<div class="row">
   <div *ngFor="let photo of photos">
     <div class="column">
       <img class="photo" src="data:image/jpeg;base64,{{photo.photo}}">
     </div>
-  </div>
-  <!--Walk detail section-->
-  <div *ngFor="let walkDetail of walkDetails">
+  </div>-->
+<!--Walk detail section-->
+<!--<div *ngFor="let walkDetail of walkDetails">
     <h1 id="routeName">{{walkDetail.walkName}}</h1>
     <p id="walkDescription">{{walkDetail.walkDescription}}</p>
   </div>
-  <br>
-  <!--Facilities section-->
-  <h2 class="facilitiesHeading">Facilities</h2>
+  <br>-->
+<!--Facilities section-->
+<!--<h2 class="facilitiesHeading">Facilities</h2>
   <div *ngFor="let facilityDetail of facilityDetails">
     <div class="facilitiesList" *ngFor="let facility of facilityDetail.facilities"><i id="favicon"
         class="fa fa-paw"></i>
       {{facility}}</div>
   </div>
-</div>
+</div>-->
 <!--Comments section-->
-<div class="commentsSection">
+<!--<div class="commentsSection">
   <div class="detailBox">
     <div class="titleBox">
       <label>Comments</label>
@@ -43,9 +43,9 @@
             </div>
           </li>
         </ul>
-      </div>
-      <!--Add comments section - TODO: Only if logged in-->
-      <form [formGroup]="commentForm" (ngSubmit)="onCommentSubmit()" class="form-inline">
+      </div>-->
+<!--Add comments section - TODO: Only if logged in-->
+<!--<form [formGroup]="commentForm" (ngSubmit)="onCommentSubmit()" class="form-inline">
         <div class="form-group" id="inputCommentBox">
           <input class="form-control" id="inputCommentBoxText" type="text" placeholder="Your comments"
             formControlName="comment" />
@@ -56,4 +56,37 @@
       </form>
     </div>
   </div>
-</div>
+</div>-->
+
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>Socket.IO Clicker</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+  <script src="https://cdn.socket.io/socket.io-1.0.6.js"></script>
+  <script src='http://localhost:9000/socket.io/socket.io.js'></script>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="row">
+      <h1 style="text-align: center">Click Counter</h1>
+    </div>
+    <div class="row">
+
+      <div class="col-md-12 ">
+        <p style="text-align: center"><button id='btn_click' class="bnt btn-lg btn-success" (click)="addLike()">Click
+            Me!</button></p>
+
+        <p style="text-align: center">Click counts:<span id="counter"></span></p>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
