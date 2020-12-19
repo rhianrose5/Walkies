@@ -76,7 +76,6 @@ export class WalkingroutesComponent implements OnInit {
   }
 
   addLike() {
-    console.log("button clicked")
     this.socket.emit('clicked'); //Emitting user click
   }
 
