@@ -8,32 +8,53 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdn.socket.io/socket.io-1.0.6.js"></script>
   <script src='http://localhost:9000/socket.io/socket.io.js'></script>
-</head>-->
-
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
 
 <!--Photos section-->
-<div class="row">
-  <div *ngFor="let photo of photos">
+<header class="titlePhoto">
+  <div class="container h-100">
+    <div class="row h-100 align-items-center">
+      <div class="col-12 text-center">
+        <div *ngFor="let walkDetail of walkDetails">
+          <h1 class="routeName" id="routeName">{{walkDetail.walkName}}</h1>
+          <p class="walkDescription" id="walkDescription">{{walkDetail.walkDescription}}</p>
+        </div>
+        <br>
+        <span><i (click)="addLike()"><i id="likeButton" class="fa fa-thumbs-up"></i></i>
+          <p>Likes:<span id="counter"></span></p>
+        </span>
+      </div>
+    </div>
+  </div>
+</header>
+<div>
+  <!--<div *ngFor="let photo of photos">
     <div class="column">
       <img class="photo" src="data:image/jpeg;base64,{{photo.photo}}">
     </div>
-  </div>
-  <!--Walk detail section-->
-  <div *ngFor="let walkDetail of walkDetails">
-    <h1 id="routeName">{{walkDetail.walkName}}</h1>
-    <p id="walkDescription">{{walkDetail.walkDescription}}</p>
-  </div>
-  <br>
+  </div>-->
   <!--Facilities section-->
   <h2 class="facilitiesHeading">Facilities</h2>
-  <div *ngFor="let facilityDetail of facilityDetails">
-    <div class="facilitiesList" *ngFor="let facility of facilityDetail.facilities"><i id="favicon"
-        class="fa fa-paw"></i>
-      {{facility}}</div>
-  </div>
-  <p><button id='likeButton' class="bnt btn-lg btn-success" (click)="addLike()"><i id="favicon"
-        class="fa fa-thumbs-up"></i></button></p>
-  <p>Likes:<span id="counter"></span></p>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Dog Bin</th>
+        <th scope="col">Car Park</th>
+        <th scope="col">Toilets</th>
+        <th scope="col">Cafe</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><i id="dogBinIcon" class="fa fa-paw" *ngIf="dogBinExists"></i></td>
+        <td><i id="carParkIcon" class="fa fa-paw" *ngIf="carParkExists"></i></td>
+        <td><i id="toiletsIcon" class="fa fa-paw" *ngIf="toiletExists"></i></td>
+        <td><i id="cafeIcon" class="fa fa-paw" *ngIf="cafeExists"></i></td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 <!--Comments section-->
 <div class="commentsSection">

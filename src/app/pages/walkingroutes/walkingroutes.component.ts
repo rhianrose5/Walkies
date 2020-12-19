@@ -29,6 +29,10 @@ export class WalkingroutesComponent implements OnInit {
     comment: new FormControl('')
   });
   socket = io('http://localhost:9000');
+  dogBinExists = false;
+  carParkExists = false;
+  toiletExists = false;
+  cafeExists = false;
 
   get f() { return this.commentForm.value; }
 
@@ -60,6 +64,19 @@ export class WalkingroutesComponent implements OnInit {
       .subscribe(facilityDetails => {
         this.loading = false;
         this.facilityDetails = facilityDetails;
+
+        if (this.facilityDetails[0].facilities.find(x => x === "Dog Bin")) {
+          this.dogBinExists = true;
+        }
+        if (this.facilityDetails[0].facilities.find(x => x === "Car Park")) {
+          this.carParkExists = true;
+        }
+        if (this.facilityDetails[0].facilities.find(x => x === "Toilets")) {
+          this.toiletExists = true;
+        }
+        if (this.facilityDetails[0].facilities.find(x => x === "Cafe")) {
+          this.cafeExists = true;
+        }
       });
 
     this._photosService.getAllPhotos(walkName)

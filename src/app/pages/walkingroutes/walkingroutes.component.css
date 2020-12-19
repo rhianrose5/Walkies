@@ -14,27 +14,15 @@
   font-family: 'IBM Plex Sans', sans-serif;
   font-size: 25px;
   margin: 10px;
-}
-
-.column {
-  float: left;
-  padding: 10px;
-}
-
-.column img {
-  border-radius: 25px;
-}
-
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
+  color: white;
 }
 
 .facilitiesHeading {
   font-family: 'IBM Plex Sans Condensed', sans-serif;
   font-size: 30px;
-  margin: 2px;
+  text-align: center;
+  color: #ffb700;
+  padding: 10px;
 }
 
 .facilitiesList {
@@ -129,4 +117,30 @@
 
 #inputCommentBoxText {
   font-size: 15px;
+}
+
+.titlePhoto {
+  height: 70vh;
+  min-height: 500px;
+  background-image: url('https://images.unsplash.com/photo-1534628526458-a8de087b1123?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#likeButton {
+  cursor: pointer;
+  font-size: 35px;
+  color: #ffb700;
+}
+
+td {
+  color: #ffb700;
+  text-align: center;
+}
+
+th {
+  color: grey;
+  text-align: center;
+  font-family: 'IBM Plex Sans Condensed', sans-serif;
 }
