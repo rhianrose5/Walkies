@@ -43,10 +43,9 @@ export class WalkingroutesComponent implements OnInit {
       console.log('Yeah I am connected!!');
     });
 
-    //Listen from server.js
     this.socket.on('click_count', function (value) {
       console.log("Count:" + value);
-      document.getElementById("counter").innerHTML = value; //Set new count value
+      document.getElementById("counter").innerHTML = value;
     });
   }
 
@@ -93,7 +92,7 @@ export class WalkingroutesComponent implements OnInit {
   }
 
   addLike() {
-    this.socket.emit('clicked'); //Emitting user click
+    this.socket.emit('clicked');
   }
 
   onCommentSubmit() {
@@ -115,14 +114,14 @@ export class WalkingroutesComponent implements OnInit {
       comment: this.f.comment
     };
 
-    /*this._commentsService.leaveComment(data)
+    this._commentsService.leaveComment(data)
       .subscribe(
         response => {
           console.log(response);
         },
         error => {
           console.log(error);
-        });*/
+        });
   }
 
 }
