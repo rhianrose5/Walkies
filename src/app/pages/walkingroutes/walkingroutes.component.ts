@@ -124,5 +124,4 @@ export class WalkingroutesComponent implements OnInit {
           console.log(error);
         });
   }
-
 }

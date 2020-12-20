@@ -13,13 +13,7 @@ var server = require('socket.io')(http, {
 
 var counter = 0; //Initial counter value 
 
-/*app.get('/', function (req, res) {
-
-  res.sendFile(__dirname + '/src/index.html');
-});*/
 app.use(express.static(__dirname + '/dist/WalkiesWebsite'));
-
-//app.use(express.static(__dirname));
 
 app.get('/*', function (req, res) {
 
@@ -43,12 +37,7 @@ server.on('connection', function (socket) {
 
 });
 
-//starting server
-/*http.listen(9000, function () {
-  console.log('listening on port: 9000');
-});*/
-
 const PORT = process.env.PORT || 9000;
 http.listen(PORT, () => {
-  console.log(`Our app is running on port ${ PORT }`);
+  console.log(`Walkies is running on port ${ PORT }`);
 });
