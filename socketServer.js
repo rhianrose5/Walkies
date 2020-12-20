@@ -12,9 +12,17 @@ var server = require('socket.io')(http, {
 
 var counter = 0; //Initial counter value 
 
-app.get('/', function (req, res) {
+/*app.get('/', function (req, res) {
 
   res.sendFile(__dirname + '/src/index.html');
+});*/
+app.use(express.static(__dirname + '/dist/WalkiesWebsite'));
+
+//app.use(express.static(__dirname));
+
+app.get('/*', function (req, res) {
+
+  res.sendFile(path.join(__dirname + '/dist/WalkiesWebsite/index.html'));
 });
 
 
