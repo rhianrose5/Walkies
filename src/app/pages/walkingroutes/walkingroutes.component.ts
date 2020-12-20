@@ -29,7 +29,7 @@ export class WalkingroutesComponent implements OnInit {
     comment: new FormControl('')
   });
   //socket = io('http://localhost:9000');
-  socket = io('https://walkies-app.herokuapp.com/socket.io/?EIO=4&transport=websocket');
+  socket = io('ws://walkies-app.herokuapp.com/socket.io/?EIO=4&transport=websocket', { secure: true });
   dogBinExists = false;
   carParkExists = false;
   toiletExists = false;
