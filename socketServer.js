@@ -35,6 +35,11 @@ server.on('connection', function (socket) {
 });
 
 //starting server
-http.listen(9000, function () {
+/*http.listen(9000, function () {
   console.log('listening on port: 9000');
+});*/
+
+const PORT = process.env.PORT || 9000;
+http.listen(PORT, () => {
+  console.log(`Our app is running on port ${ PORT }`);
 });
