@@ -97,15 +97,6 @@ export class WalkingroutesComponent implements OnInit {
   }
 
   onCommentSubmit() {
-    this.socket = io.connect('http://localhost:9000');
-    console.log("socket: " + this.socket);
-
-    this.socket.on("server message", function (msg) {
-      console.log("Rec'd from server: '" + msg + "'");
-      this.socket.emit("client message", "Acknowledging your message");
-      console.log("Emitted message...")
-    });
-
     var walkName = document.getElementById("routeName").innerHTML;
 
     const data = {
@@ -118,10 +109,13 @@ export class WalkingroutesComponent implements OnInit {
     this._commentsService.leaveComment(data)
       .subscribe(
         response => {
-          console.log(response);
+          document.getElementById("commentSuccessMessage").style.color = "#ffb700";
+          document.getElementById("commentSuccessMessage").innerHTML = "Comment successfully added!";
+          window.location.reload();
         },
         error => {
-          console.log(error);
+          document.getElementById("commentSuccessMessage").style.color = "red";
+          document.getElementById("commentSuccessMessage").innerHTML = "Please enter a valid comment";
         });
   }
 }

@@ -32,8 +32,8 @@
 }
 
 .commentsSection {
-  margin-right: 20%;
-  margin-left: 20%;
+  margin-right: 5%;
+  margin-left: 5%;
 }
 
 .titleBox label {
@@ -47,15 +47,15 @@
 }
 
 .commentsSection .form-group:first-child {
-  width: 80%;
+  width: 100%;
 }
 
 .commentsSection .form-group:nth-child(2) {
-  width: 18%;
+  width: 100%;
 }
 
 .commentsSection .form-group * {
-  width: 100%;
+  width: 50%;
 }
 
 .taskDescription {
@@ -101,6 +101,7 @@
 
 #inputCommentBoxText {
   font-size: 15px;
+  width: 100%;
 }
 
 .titlePhoto {
@@ -139,4 +140,14 @@ th {
   content: "";
   display: table;
   clear: both;
+}
+
+#submitButton {
+  width: 30%;
+  display: inline-block;
+}
+
+#commentSuccessMessage {
+  margin-left: 5px;
+  width: 40%;
 }

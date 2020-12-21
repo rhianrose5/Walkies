@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../auth.service';
 
 @Component({
   selector: 'app-header',
@@ -7,26 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(public auth: AuthService) { }
 
   ngOnInit() {
   }
-
-  /*expandNavbar() {
-    //change icon to be a cross
-    if (document.getElementById("navbarIcon").className == "fa fa-bars") {
-      document.getElementById("navbarIcon").className = "fa fa-paw";
-    } else {
-      document.getElementById("navbarIcon").className = "fa fa-bars"
-    }
-
-
-    //expand links
-    var x = document.getElementById("myLinks");
-    if (x.style.display === "block") {
-      x.style.display = "none";
-    } else {
-      x.style.display = "block";
-    }
-  }*/
 }
