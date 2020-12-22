@@ -23,4 +23,8 @@ export class CommentsService {
     leaveComment(data): Observable<any> {
         return this.http.post(`${baseUrl}/createComment`, data);
     };
+
+    deleteComment(commentId): Observable<any> {
+        return this.http.delete(`${baseUrl}/deleteComment?commentId=${commentId}`);
+    };
 }

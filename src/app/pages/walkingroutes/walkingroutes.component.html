@@ -66,21 +66,28 @@
       <ul class="commentList">
         <li>
           <div class="commentText">
-            <p class="">{{comment.comment}}</p> <span class="date sub-text">Submitted by {{comment.userId}}</span>
+            <span class="fa fa-trash" id="deleteIcon" (click)="deleteComment(comment.commentId)"
+              *ngIf="auth.loggedIn"></span>
+            <p class="">{{comment.comment}}</p>
+            <span class="date sub-text">Submitted by {{comment.userId}}</span>
           </div>
         </li>
       </ul>
     </div>
-    <!--Add comments section - TODO: Only if logged in-->
-    <form [formGroup]="commentForm" (ngSubmit)="onCommentSubmit()" class="form-inline">
-      <div class="form-group" id="inputCommentBox">
-        <input class="form-control" id="inputCommentBoxText" type="text" placeholder="Your comments"
-          formControlName="comment" />
-      </div>
-      <div class="form-group">
-        <button type="submit" id="submitButton" class="btn btn-secondary">Submit</button>
-        <span id="commentSuccessMessage"></span>
-      </div>
-    </form>
+    <div class="profile" *ngIf="auth.userProfile$ | async as profile">
+      <form [formGroup]="commentForm" (ngSubmit)="onCommentSubmit(profile.name)" class="form-inline"
+        *ngIf="auth.loggedIn">
+        <div class="form-group" id="inputCommentBox">
+          <input class="form-control" id="inputCommentBoxText" type="text" placeholder="Your comments"
+            formControlName="comment" />
+        </div>
+        <div class="form-group">
+          <button type="submit" id="submitButton" class="btn btn-secondary">Submit</button>
+          <span id="commentSuccessMessage"></span>
+        </div>
+      </form>
+    </div>
+    <br>
+    <p id="commentDisclaimer" *ngIf="!auth.loggedIn">Please create an account or log in to leave a comment.</p>
   </div>
 </div>

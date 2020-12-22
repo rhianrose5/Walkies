@@ -2,6 +2,6 @@ export interface IComments {
     walkId: number;
     walkName: string;
     userId: string;
-    commentId: number;
+    commentId: string;
     comment: string;
 }

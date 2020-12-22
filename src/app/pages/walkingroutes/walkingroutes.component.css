@@ -151,3 +151,13 @@ th {
   margin-left: 5px;
   width: 40%;
 }
+
+#deleteIcon {
+  color: red;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#commentDisclaimer {
+  color: #ffb700;
+}

@@ -9,8 +9,8 @@ import { PhotosService } from '../../services/photo.service';
 import { CommentsService } from '../../services/comment.service';
 import { IComments } from '../../models/comment';
 import { FormControl, FormGroup } from '@angular/forms';
-//import { io } from 'socket.io-client';
 import * as io from 'socket.io-client';
+import { AuthService } from '../../auth.service';
 
 @Component({
   selector: 'app-walkingroutes',
@@ -37,7 +37,7 @@ export class WalkingroutesComponent implements OnInit {
 
   get f() { return this.commentForm.value; }
 
-  constructor(private route: ActivatedRoute, private _walksService: WalksService, private _facilitiesService: FacilitiesService, private _photosService: PhotosService, private _commentsService: CommentsService) {
+  constructor(private route: ActivatedRoute, private _walksService: WalksService, private _facilitiesService: FacilitiesService, private _photosService: PhotosService, private _commentsService: CommentsService, public auth: AuthService) {
     this.currentURL = window.location.href;
 
     this.socket.on('connect', function () {
@@ -96,13 +96,12 @@ export class WalkingroutesComponent implements OnInit {
     this.socket.emit('clicked');
   }
 
-  onCommentSubmit() {
+  onCommentSubmit(userName) {
     var walkName = document.getElementById("routeName").innerHTML;
 
     const data = {
       walkName: walkName,
-      //TODO: Update with user detail
-      userId: "Test user",
+      userId: userName,
       comment: this.f.comment
     };
 
@@ -117,5 +116,14 @@ export class WalkingroutesComponent implements OnInit {
           document.getElementById("commentSuccessMessage").style.color = "red";
           document.getElementById("commentSuccessMessage").innerHTML = "Please enter a valid comment";
         });
+  }
+
+  deleteComment(commentId) {
+    this._commentsService.deleteComment(commentId)
+      .subscribe(
+        response => {
+          window.location.reload();
+        },
+        error => { });
   }
 }
