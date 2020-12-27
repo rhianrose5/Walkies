@@ -26,9 +26,22 @@ describe('Like button on routes page', () => {
     cy.visit('https://walkies-app.herokuapp.com/walkingroutes/Glastonbury%20Tor')
 
     //When
-    cy.get('#likeButton').click()
+    //Click like button
+    cy.get('#likeButton').click();
 
     //Then
-    cy.get('#counter').should('be', 'Likes:')
+    //Ensure that the like count is greater than one
+    cy.get('#counter').invoke('text').then(parseFloat).should('be.gt', 1);
+  })
+})
+
+describe('Map exists', () => {
+  it('Map exists on the main page', () => {
+    //Given
+    cy.visit('https://walkies-app.herokuapp.com')
+
+    //Then
+    //The map exists
+    cy.get('#map')
   })
 })
