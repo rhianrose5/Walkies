@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { WalkingroutesComponent } from './walkingroutes.component';
 import { compileComponentFromMetadata } from '@angular/compiler';
 import { HttpClientModule } from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
+import { AppRoutingModule } from '../../app-routing.module';
 
 describe('WalkingroutesComponent', () => {
   let component: WalkingroutesComponent;
@@ -14,7 +14,7 @@ describe('WalkingroutesComponent', () => {
       declarations: [WalkingroutesComponent],
       imports: [
         HttpClientModule,
-        ActivatedRoute
+        AppRoutingModule
       ]
     })
       .compileComponents();

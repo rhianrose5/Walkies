@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { HeaderComponent } from './header.component';
 import { HttpClientModule } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { AppRoutingModule } from '../../app-routing.module';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -13,7 +13,7 @@ describe('HeaderComponent', () => {
       declarations: [HeaderComponent],
       imports: [
         HttpClientModule,
-        Router
+        AppRoutingModule
       ]
     })
       .compileComponents();

@@ -14,6 +14,7 @@ import { FacilitiesService } from './services/facility.service';
 import { PhotosService } from './services/photo.service';
 import { CommentsService } from './services/comment.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @NgModule({
   declarations: [
