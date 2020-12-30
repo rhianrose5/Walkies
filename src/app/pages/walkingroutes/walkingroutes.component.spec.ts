@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { WalkingroutesComponent } from './walkingroutes.component';
+import { compileComponentFromMetadata } from '@angular/compiler';
+import { HttpClientModule } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
 
 describe('WalkingroutesComponent', () => {
   let component: WalkingroutesComponent;
@@ -8,9 +11,13 @@ describe('WalkingroutesComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ WalkingroutesComponent ]
+      declarations: [WalkingroutesComponent],
+      imports: [
+        HttpClientModule,
+        ActivatedRoute
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { MapComponent } from './map.component';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('MapComponent', () => {
   let component: MapComponent;
@@ -8,9 +9,12 @@ describe('MapComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ MapComponent ]
+      declarations: [MapComponent],
+      imports: [
+        HttpClientModule,
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
