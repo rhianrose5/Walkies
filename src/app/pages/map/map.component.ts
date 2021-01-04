@@ -74,9 +74,9 @@ export class MapComponent implements OnInit {
                             .setLngLat(new mapboxgl.LngLat(mark.longitude, mark.latitude))
                             .setPopup(new mapboxgl.Popup({ closeOnClick: true })
                                 //local pages
-                                //.setHTML('<head><link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet"></head><p style="font-family:Gloria Hallelujah, cursive;"><a style="text-decoration:none; color:black; font-size:25px;" href="http://localhost:4200//walkingroutes/' + mark.walkName + '">' + mark.walkName + '</a></p>'))
-                                //deployed pages
-                                .setHTML('<head><link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet"></head><p style="font-family:Gloria Hallelujah, cursive;"><a style="text-decoration:none; color:black; font-size:25px;" href="https://walkies-app.herokuapp.com/walkingroutes/' + mark.walkName + '">' + mark.walkName + '</a></p>'))
+                                .setHTML('<head><link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet"></head><p style="font-family:Gloria Hallelujah, cursive;"><a style="text-decoration:none; color:black; font-size:25px;" href="http://localhost:4200//walkingroutes/' + mark.walkName + '">' + mark.walkName + '</a></p>'))
+                            //deployed pages
+                            //.setHTML('<head><link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet"></head><p style="font-family:Gloria Hallelujah, cursive;"><a style="text-decoration:none; color:black; font-size:25px;" href="https://walkies-app.herokuapp.com/walkingroutes/' + mark.walkName + '">' + mark.walkName + '</a></p>'))
                             .addTo(this.map);
                     });
                 });
