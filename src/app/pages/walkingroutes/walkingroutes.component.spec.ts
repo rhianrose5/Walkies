@@ -1,24 +1,28 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { WalkingroutesComponent } from './walkingroutes.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { AppRoutingModule } from '../../app-routing.module';
 import { WalksService } from '../../services/walk.service';
 import { Observable } from 'rxjs';
 import { FacilitiesService } from '../../services/facility.service';
+import { PhotosService } from '../../services/photo.service';
+import { CommentsService } from '../../services/comment.service';
 
 describe('WalkingroutesComponent', () => {
   let component: WalkingroutesComponent;
   let fixture: ComponentFixture<WalkingroutesComponent>;
   let walkService: WalksService;
   let facilitiesService: FacilitiesService;
+  let photosService: PhotosService;
+  let commentsService: CommentsService;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      providers: [WalksService, FacilitiesService],
+      providers: [WalksService, FacilitiesService, PhotosService],
       declarations: [WalkingroutesComponent],
       imports: [
-        HttpClientModule,
+        HttpClientTestingModule,
         AppRoutingModule
       ]
     })
@@ -35,15 +39,23 @@ describe('WalkingroutesComponent', () => {
     walkService = TestBed.get(WalksService);
   });
 
-  /*beforeEach(() => {
+  beforeEach(() => {
     facilitiesService = TestBed.get(FacilitiesService);
-  });*/
+  });
+
+  beforeEach(() => {
+    photosService = TestBed.get(PhotosService);
+  });
+
+  beforeEach(() => {
+    commentsService = TestBed.get(CommentsService);
+  });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should call the walk service for getAllWalkInformation and faclities service for getFacilityInformation', () => {
+  it('should call the walk service for getAllWalkInformation', () => {
     spyOn(walkService, 'getAllWalkInformation').and.returnValue(
       new Observable<any>()
     );
@@ -51,11 +63,32 @@ describe('WalkingroutesComponent', () => {
     expect(walkService.getAllWalkInformation).toHaveBeenCalled();
   });
 
-  /*it('should call the faclities service for getFacilityInformation', () => {
+  it('should call the faclities service for getFacilityInformation', () => {
     spyOn(facilitiesService, 'getAllFacilityInformation').and.returnValue(
       new Observable<any>()
     );
     component.ngOnInit();
     expect(facilitiesService.getAllFacilityInformation).toHaveBeenCalled();
-  });*/
+  });
+
+  it('should call the photos service for getAllPhotos', () => {
+    spyOn(photosService, 'getAllPhotos').and.returnValue(
+      new Observable<any>()
+    );
+    component.ngOnInit();
+    expect(photosService.getAllPhotos).toHaveBeenCalled();
+  });
+
+  it('should call the comments service for getAllComments', () => {
+    spyOn(commentsService, 'getAllComments').and.returnValue(
+      new Observable<any>()
+    );
+    component.ngOnInit();
+    expect(commentsService.getAllComments).toHaveBeenCalled();
+  });
+
+  it('should require user to log in', () => {
+    const commentDisclaimer = fixture.debugElement.nativeElement.querySelector('#commentDisclaimer');
+    expect(commentDisclaimer.innerHTML).toBe('Please create an account or log in to leave a comment.');
+  });
 });

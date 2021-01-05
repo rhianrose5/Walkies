@@ -1,8 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync, async, inject } from '@angular/core/testing';
 import { MapComponent } from './map.component';
-import { HttpClientModule } from '@angular/common/http';
 import { WalksService } from '../../services/walk.service';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { Observable } from 'rxjs';
 
 describe('MapComponent', () => {
@@ -15,7 +14,6 @@ describe('MapComponent', () => {
       providers: [WalksService],
       declarations: [MapComponent],
       imports: [
-        HttpClientModule,
         HttpClientTestingModule
       ]
     })
