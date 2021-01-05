@@ -91,4 +91,12 @@ describe('WalkingroutesComponent', () => {
     const commentDisclaimer = fixture.debugElement.nativeElement.querySelector('#commentDisclaimer');
     expect(commentDisclaimer.innerHTML).toBe('Please create an account or log in to leave a comment.');
   });
+
+  /*it('should add a like to the like count', () => {
+    const likeValue = fixture.debugElement.nativeElement.querySelector('#counter').innerHTML;
+    const likeButton = fixture.debugElement.nativeElement.querySelector('#likeButton');
+    likeButton.click();
+    const newLikeValue = fixture.debugElement.nativeElement.querySelector('#counter');
+    expect(newLikeValue.innerHTML).toBe(likeValue + 1);
+  });*/
 });
